@@ -7,4 +7,5 @@ public interface EmployeeService {
     float totalSalary(List<Job> list);
     int totalBonus(List<Job> list);
     void writeNumber();
+    void saveJob(Job job);
 }

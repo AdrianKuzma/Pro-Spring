@@ -5,6 +5,7 @@ import java.util.List;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
+    private EmployeeRepository employeeRepository;
     int number = 0;
     @Override
     public float totalSalary(List<Job> list) {
@@ -19,5 +20,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void writeNumber() {
         System.out.println(++number);
+    }
+
+    @Override
+    public void saveJob(Job job) {
+        employeeRepository.save(job);
     }
 }

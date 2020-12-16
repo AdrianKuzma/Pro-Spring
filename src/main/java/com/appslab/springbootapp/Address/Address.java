@@ -13,19 +13,16 @@ public class Address {
     private int zipCode;
     private String city;
     private String state;
-    @OneToOne
-    private Company company;
 
     public Address() {
     }
 
-    public Address(int id, String street, int zipCode, String city, String state, Company company) {
+    public Address(int id, String street, int zipCode, String city, String state) {
         this.id = id;
         this.street = street;
         this.zipCode = zipCode;
         this.city = city;
         this.state = state;
-        this.company = company;
     }
 
     public int getId() {

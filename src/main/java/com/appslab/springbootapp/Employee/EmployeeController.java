@@ -1,11 +1,11 @@
 package com.appslab.springbootapp.Employee;
+import com.appslab.springbootapp.Company.Company;
+import com.appslab.springbootapp.Company.CompanyRepository;
 import com.appslab.springbootapp.Model.Driver;
 import com.appslab.springbootapp.Model.Job;
 import com.appslab.springbootapp.Model.Programmer;
 import com.appslab.springbootapp.Model.Teacher;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -37,5 +37,9 @@ public class EmployeeController {
     @GetMapping("/snail")
     public float snail(@RequestParam float sH,@RequestParam float sL,@RequestParam float tH){
         return tH / sH * (sH + sL);
+    }
+    @PostMapping("/job")
+    public void test(@RequestBody Job job) {
+        x.saveJob(job);
     }
 }
