@@ -1,4 +1,5 @@
 package com.appslab.springbootapp.Employee;
+import com.appslab.springbootapp.Company.CompanyRepository;
 import com.appslab.springbootapp.Model.Job;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -7,6 +8,11 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
     int number = 0;
+
+    public EmployeeServiceImpl(EmployeeRepository  employeeRepository ) {
+        this.employeeRepository = employeeRepository ;
+    }
+
     @Override
     public float totalSalary(List<Job> list) {
         return list.stream().mapToInt(i -> (int) i.getSalary()).sum();

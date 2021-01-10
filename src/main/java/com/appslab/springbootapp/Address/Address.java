@@ -1,14 +1,13 @@
 package com.appslab.springbootapp.Address;
-
-import com.appslab.springbootapp.Company.Company;
-
 import javax.persistence.*;
 
 @Entity
 public class Address {
+    
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
+
     private String street;
     private int zipCode;
     private String city;

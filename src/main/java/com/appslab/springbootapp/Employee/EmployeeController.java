@@ -13,9 +13,9 @@ import java.util.List;
 @RestController
 public class EmployeeController {
     private EmployeeService x;
-    Programmer pr1 = new Programmer( 1700 , 200);
-    Teacher tc1 = new Teacher( 900 , 300);
-    Driver dv1 = new Driver(1000 , 300);
+    Programmer pr1 = new Programmer( 1 ,1700 , 200);
+    Teacher tc1 = new Teacher( 2,900 , 300);
+    Driver dv1 = new Driver(3,1000 , 300);
     List<Job> list = Arrays.asList(pr1,tc1,dv1);
 
     public EmployeeController(EmployeeService x) {

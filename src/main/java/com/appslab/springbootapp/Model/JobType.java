@@ -5,9 +5,13 @@ public enum JobType {
     TEACHER("Teacher"),
     DRIVER("Driver");
 
-    public final String  name;
+    public String  name;
 
     JobType(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 }

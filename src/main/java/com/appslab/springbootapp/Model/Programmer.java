@@ -1,9 +1,11 @@
 package com.appslab.springbootapp.Model;
+import javax.persistence.Entity;
 
+@Entity
 public class Programmer extends Job {
 
-    public Programmer(float salary, int bonus) {
-        super(salary, bonus, JobType.PROGRAMMER);
+    public Programmer(int id, float salary, int bonus) {
+        super(id,salary, bonus, JobType.PROGRAMMER);
     }
 
     @Override

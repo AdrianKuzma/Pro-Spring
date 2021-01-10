@@ -1,5 +1,6 @@
 package com.appslab.springbootapp.Company;
 import com.appslab.springbootapp.Address.Address;
+import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 
@@ -8,10 +9,13 @@ import javax.persistence.*;
 public class Company {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
     private String name;
-    @OneToOne
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @NotNull
     private Address address;
 
     public Company() {
@@ -23,6 +27,13 @@ public class Company {
         this.address = address;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public String getName() {
         return name;
