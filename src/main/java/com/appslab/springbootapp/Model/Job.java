@@ -1,4 +1,5 @@
 package com.appslab.springbootapp.Model;
+import com.appslab.springbootapp.Company.Company;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
@@ -27,19 +28,37 @@ public class Job {
     float salary;
     int bonus;
 
+
+    @ManyToOne()
+    @JoinColumn(name = "company_id", insertable = false, updatable = false)
+    Company company;
+
+    @Column(name = "company_id")
+    int companyID;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "jobType", nullable = false,insertable = false,updatable = false)
     JobType jobtype;
 
-    public Job(int id,float salary, int bonus, JobType jobtype) {
-        this.id = id;
+    public Job(float salary, int bonus, int companyID, JobType jobtype) {
         this.salary = salary;
         this.bonus = bonus;
+        this.companyID = companyID;
         this.jobtype = jobtype;
     }
 
+    public Job(float salary, int bonus, Company company, JobType jobtype) {
+        this.salary = salary;
+        this.bonus = bonus;
+        this.company = company;
+        this.jobtype = jobtype;
+        companyID = company.getId();
+    }
     public Job(){
+    }
 
+    public Job(JobType jobType){
+        this.jobtype = jobType;
     }
 
     public void setId(int id) {
@@ -77,4 +96,20 @@ public class Job {
     public int getBonus() {
         return bonus;
     }
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public int getCompanyID() {
+        return companyID;
+    }
+
+    public void setCompanyID(int companyID) {
+        this.companyID = companyID;
+    }
+
 }
